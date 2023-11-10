@@ -21,7 +21,7 @@ def load_data():
         # reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         # docs = reader.load_data()
 
-        UnstructuredURLLoader = download_loader("UnstructuredURLLoader", custom_path="./")
+        UnstructuredURLLoader = download_loader("UnstructuredURLLoader", custom_path=".")
         urls = ["https://unifi.com.my/support/faq"]
         loader = UnstructuredURLLoader(urls=urls, continue_on_failure=False, headers={"User-Agent": "value"})
         docs = loader.load()
