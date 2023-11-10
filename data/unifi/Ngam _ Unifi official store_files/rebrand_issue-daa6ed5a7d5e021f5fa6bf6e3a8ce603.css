@@ -1,0 +1,11 @@
+.inneremptyspacer{
+  padding-top: unset;
+}
+
+.text-primary.text-sm-white {
+  color: white !important;
+}
+
+.innertopheader.headertinybtm .textcover{
+  align-items: center !important;
+}

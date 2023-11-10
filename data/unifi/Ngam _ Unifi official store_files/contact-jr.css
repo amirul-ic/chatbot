@@ -1,0 +1,184 @@
+.contact-rocket {
+  max-width: 74px;
+}
+@media (max-width: 767px) {
+  .contact-rocket {
+    max-width: 46px;
+  }
+}
+.contact-write {
+  max-width: 68px;
+}
+@media (max-width: 767px) {
+  .contact-write {
+    max-width: 41px;
+  }
+}
+/*Hide all except first fieldset*/
+#steps1 #msform1 fieldset:not(:first-of-type) {
+  display: none;
+}
+.logmein {
+  padding-right: 0px !important;
+}
+.logmein.modal.show .modal-dialog {
+  max-width: 600px !important;
+  margin: auto !important;
+  /*height: 100%;*/
+  width: 100% !important;
+  /*display: flex;
+	align-items: center;*/
+  /*top: 50%;
+    transform: translate(0%,-50%);*/
+}
+.step-row .my-auto {
+  margin: auto !important;
+}
+.logmein .close-search {
+  position: relative;
+  text-align: center;
+  display: block !important;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.logmein.modal.show .modal-dialog .modal-content .mymodal-body {
+  padding: 0em 0px 0px !important;
+  background: #f6f6f6;
+  border-radius: calc(1.05rem * var(--text-multiplier, 0.85));
+  -webkit-border-radius: calc(1.05rem * var(--text-multiplier, 0.85));
+  overflow: hidden;
+}
+body.modal-open > :not(.modal) {
+  background: #9a9a9a;
+}
+.modal-title-box {
+  padding: 30px;
+  background: #fff;
+}
+#steps1 .modal-body-box {
+  padding: 30px 30px 0px 30px;
+}
+.ps-eye {
+  float: right;
+  cursor: pointer;
+}
+#show_hide_password a {
+  position: absolute;
+  top: 35%;
+  transform: translate(-50%, 0);
+  right: 20px;
+}
+.forgotme {
+  color: #ff6624;
+}
+.colororange {
+  color: #ff6624;
+}
+#steps1 .button-progress {
+  margin: 0px 30px 30px 30px;
+  text-align: right;
+}
+#steps1 .button-progress input {
+  border: 0px;
+}
+#steps1 .form-radio label i {
+  color: #cccccc;
+  font-size: calc(1.8rem * var(--text-multiplier, 0.8));
+  line-height: calc(2.2rem * var(--text-multiplier, 0.8));
+  margin-right: 5px;
+}
+#steps1 .form-radio input:checked + label i {
+  color: #ff6624;
+}
+#steps1 .form-radio label {
+  display: flex;
+  font-weight: 700;
+  align-items: center;
+}
+#steps1 #msform1 input[type="radio"] {
+  display: none;
+}
+
+.form-label-select.formgrey label {
+  background: #fff;
+  color: #3f4443;
+}
+.mytextarea textarea {
+  min-height: 135px;
+}
+.myplaceholder {
+  background: #fff;
+  color: #3f4443;
+  font-weight: 700;
+  padding: var(--input-smpadding-y) var(--input-smpadding-x);
+  height: 100%;
+  font-size: calc(1rem * var(--text-multiplier, 0.9));
+  border: 1px solid #fff !important;
+  border-radius: 0.25rem;
+}
+.myplaceholder div {
+  max-width: 17px;
+  float: right;
+}
+.myplaceholder img {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 3px;
+}
+.clearme {
+  cursor: pointer;
+  margin-top: 8px;
+  float: left;
+}
+.font-w-normal {
+  font-weight: 400;
+}
+.thanks-mod {
+  max-width: 45px;
+}
+.thanks-mod img {
+  width: 100%;
+}
+.action-button {
+  border: 0px;
+}
+#support-zero-step {
+  background: #fff;
+}
+.skipme {
+  border: 1px solid #ff6624 !important;
+  background: transparent !important;
+  color: #ff6624 !important;
+}
+#support-zero-step .modal-title-box {
+  padding-bottom: 0px;
+}
+#support-zero-step .flexme {
+  padding: 30px;
+  padding-top: 0px;
+}
+#steps1 .row {
+  height: 100vh;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+@media (max-width: 1400px) {
+  #steps1 .row {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+  .modal-title-box {
+    padding: 20px;
+  }
+  #steps1 .modal-body-box {
+    padding: 20px 20px 0px 20px;
+  }
+  #steps1 .button-progress {
+    margin: 0px 20px 20px 20px;
+  }
+}
+@media (max-width: 500px) {
+  #show_hide_password a {
+    display: none;
+  }
+}

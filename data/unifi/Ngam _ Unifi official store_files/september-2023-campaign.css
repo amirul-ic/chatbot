@@ -1,0 +1,256 @@
+.august-countdown-container {
+    background: url(/sites/default/files/page/assets/images/ataw/8.8/88-countdown-masthead.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    height: 400px;
+    background-size: contain;
+    align-items: center;
+}
+
+.september-countdown-container {
+    background: url(/sites/default/files/page/assets/images/personal/mobile/september-campaign/malaysianflag_wPROMO.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    height: 400px;
+    background-size: contain;
+    align-items: center;
+}
+
+.countdown-border {
+    border-bottom: 3px solid #FF5E00;
+}
+
+.aug-limited-time-offer {
+    width: 70%;
+}
+
+table {
+    border: 1px solid #1800E7;
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0px;
+    table-layout: fixed;
+    min-width: 100%;
+    font-size: 16px;
+    overflow: auto;
+}
+
+table th {
+    padding: 8px;
+    border: 1px solid #FF5E00;
+    background: #ff6624;
+    color: white;
+    padding: 15px 8px;
+    font-weight: bold;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid #FF5E00;
+}
+
+table tr {
+    background-color: #f7eeea;
+    color: #000000;
+}
+
+#ataw-deals-table table td {
+    padding: 8px;
+    border: 1px solid #180092;
+}
+
+#ataw-deals-table table th {
+    border: 1px solid #180092;
+}
+
+.postpaid-countdown-container {
+    width: 75%;
+}
+
+.panel-exc,
+.panel-exc-device {
+    background: url(/sites/default/files/page/assets/images/ataw/8.8/img_campaign-details_mobileview.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-color: #180092;
+    background-size: contain;
+}
+
+.postpaid-step-exc {
+    width: 60%;
+}
+
+.panel-exc {
+    height: unset;
+}
+
+.panel-countdown,
+.panel-countdown-ataw {
+    /* background: url(/sites/default/files/page/assets/images/ataw/september-campaign/malaysianflag_left.png), url(/sites/default/files/page/assets/images/ataw/september-campaign/malaysianflag_right.png); */
+    background-repeat: no-repeat;
+    background-position-x: left, right;
+    background-position-y: bottom;
+    height: unset;
+}
+
+h2 {
+    font-size: calc(1.325rem + 0.9vw);
+}
+
+.unifingam-img {
+    width: 40%;
+    top: -60px;
+    position: relative;
+}
+
+.unifingam-limited {
+    top: -30px;
+    position: relative;
+}
+
+.legoland-logo {
+    width: auto;
+}
+
+.excl-desc {
+    width: 50%;
+}
+
+.panel-exc-postpaid {
+    background: url(/sites/default/files/page/assets/images/personal/mobile/september-campaign/chevron-2.png);
+    background-color: #FF5E00;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+}
+
+.panel-count {
+    height: 450px;
+}
+
+.label-plan {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    line-height: 1;
+    color: #ff6624;
+    white-space: nowrap;
+}
+
+.title-campaign {
+    height: 120px;
+    width: 380px;
+}
+
+.table-70 {
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        min-width: 600px;
+    }
+
+    .panel-count {
+        height: auto;
+    }
+
+    .august-countdown-container {
+        background: url(/sites/default/files/page/assets/images/ataw/8.8/88-countdown-masthead.png);
+        background-repeat: no-repeat;
+        background-position-x: right;
+        height: 670px;
+        background-size: contain;
+        background-position-y: bottom;
+        align-items: unset;
+    }
+
+    .september-countdown-container {
+        background: url(/sites/default/files/page/assets/images/personal/mobile/september-campaign/malaysianflag_wPROMO.png);
+        background-repeat: no-repeat;
+        background-position-x: right;
+        height: 770px;
+        background-size: contain;
+        background-position-y: bottom;
+        align-items: unset;
+    }
+
+    .aug-limited-time-offer {
+        width: 100%;
+    }
+
+    ::-webkit-scrollbar {
+        height: 2px;
+        background: transparent;
+        width: 0px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        border: 3px solid white;
+    }
+
+    .postpaid-countdown-container {
+        width: 100%;
+    }
+
+    .postpaid-step-exc {
+        width: 100%;
+    }
+
+    .panel-exc {
+        height: 1350px;
+    }
+
+    .panel-countdown {
+        /* height: 750px; */
+    }
+
+    .panel-countdown-ataw {
+        /* height: 1450px; */
+    }
+
+    .panel-exc-device {
+        height: 1480px;
+    }
+
+    .unifingam-img {
+        width: 80%;
+        top: -30px;
+        position: relative;
+    }
+
+    .unifingam-limited {
+        top: -20px;
+        position: relative;
+    }
+
+    .legoland-logo {
+        width: 100%;
+    }
+
+    .excl-desc {
+        width: 100%;
+    }
+
+    .panel-exc-postpaid {
+        background: unset;
+        background-color: #FF5E00;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: bottom;
+    }
+
+    .title-campaign {
+        height: unset;
+        width: 280px;
+    }
+
+    .table-70 {
+        width: 100%;
+    }
+}

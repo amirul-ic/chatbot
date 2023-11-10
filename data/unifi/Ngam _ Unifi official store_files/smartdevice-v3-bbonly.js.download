@@ -1,0 +1,298 @@
+jQuery(document).ready(function ($) {
+    $('a[href^="#"].smoothscroll').click(function () {
+        $("html, body").animate(
+            {
+                scrollTop:
+                    $($.attr(this, "href")).offset().top -
+                    $(".indexSubNaviContainerInner").outerHeight(),
+            },
+            500
+        );
+    });
+    $(".popup-device")
+        .on("show.bs.modal", function (e) {
+            event.preventDefault();
+            event.stopPropagation();
+            $("body").addClass("modal-open-scroll");
+        })
+        .on("hidden.bs.modal", function (e) {
+            event.preventDefault();
+            event.stopPropagation();
+            $("body").removeClass("modal-open-scroll");
+        });
+    function initPrices() {
+        $(".plan-pricebox").each(function () {
+            var baseprice = parsePrice($(this).attr("data-baseprice"));
+            var fullprice = parsePrice($(this).attr("data-fullprice"));
+            var itemprice = parsePrice(
+                $(this)
+                    .find(".item:first-child .plan-device-box")
+                    .attr("data-itemprice")
+            );
+            var totalprice = itemprice == "0" ? baseprice : baseprice + itemprice;
+            $(this).find(".pd-total").text(totalprice);
+            if (fullprice > 0) {
+                $(this).find(".pd-fullprice").text(fullprice);
+                $(this).find(".plan-fullprice").addClass("active");
+            }
+        });
+    }
+    initPrices();
+    function initPlans() {
+        var planlist = "htmd";
+        var defaultplan = "h";
+        $.urlParam = function (name) {
+            var results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
+                window.location.href
+            );
+            if (results == null) {
+                return null;
+            }
+            return decodeURI(results[1]) || 0;
+        };
+        var currentPlan = $.urlParam("plan");
+        if (!currentPlan) {
+            currentPlan = defaultplan;
+        } else {
+            if (!planExists(currentPlan, planlist)) {
+                currentPlan = defaultplan;
+            }
+        }
+        setCheckedPlan(currentPlan);
+        showPlan(currentPlan);
+    }
+    initPlans();
+    function showPlan(currentPlan = "") {
+        $(".plan-group").hide();
+        if (currentPlan) {
+            $(".plan-" + currentPlan).show();
+        } else {
+            $(".plan-none").show();
+        }
+        $(".plan-device-slider.slick-initialized").slick("refresh");
+    }
+    function planExists(currentPlan, planlist) {
+        var success = 1;
+        for (var i = 0; i < currentPlan.length; i++) {
+            if (planlist.indexOf(currentPlan.charAt(i)) == -1) {
+                success = 0;
+            }
+        }
+        return success;
+    }
+    function getCheckedPlan() {
+        var currentPlan = "";
+        $(".sd-checkbox").each(function () {
+            if (this.checked) {
+                currentPlan += $(this).val();
+            }
+        });
+        return currentPlan;
+    }
+    function setCheckedPlan(currentPlan) {
+        $(".selector-wrapper .sd-checkbox").each(function () {
+            if (currentPlan.indexOf($(this).val()) > -1) {
+                if (this.checked == false) {
+                    this.checked = true;
+                    $(this).closest(".selector-label").addClass("active");
+                }
+            } else {
+                if (this.checked == true) {
+                    this.checked = true;
+                    $(this).closest(".selector-label").removeClass("active");
+                }
+            }
+        });
+    }
+    $(".sd-checkbox").change(function () {
+        if (this.checked) {
+            $(this).closest(".selector-label").addClass("active");
+        } else {
+            $(this).closest(".selector-label").removeClass("active");
+        }
+        showPlan(getCheckedPlan());
+    });
+    $(".addon-selector select").on("change", function () {
+        var $currentAddon = $(this).closest(".addon-box");
+        var ddtitle = $(this).find(":selected").attr("data-title");
+        var ddprice = $(this).find(":selected").attr("data-price");
+        var ddimg = $(this).find(":selected").attr("data-img");
+        if (ddtitle) {
+            $currentAddon.find(".addon-title").text(ddtitle);
+        }
+        if (ddprice) {
+            $currentAddon.find(".addon-price").text(ddprice);
+        }
+        if (ddimg) {
+            $currentAddon.find(".addon-img img").attr("src", ddimg);
+        }
+    });
+    function moveScroller() {
+        var $anchor = $(".selector-anchor");
+        var $scroller = $(".selector-spacing");
+        var $anchorend = $(".selector-end");
+        var move = function () {
+            var st = $(window).scrollTop();
+            var ot = $anchor.offset().top;
+            var pt = $anchorend.offset().top;
+            if (st > ot) {
+                $scroller.addClass("fixed");
+            } else {
+                $scroller.removeClass("fixed");
+            }
+            if (st > pt) {
+                $scroller.addClass("disabled");
+            } else {
+                $scroller.removeClass("disabled");
+            }
+        };
+        $(window).scroll(move);
+        move();
+    }
+    moveScroller();
+    $(".intro-slider").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: false,
+        dots: true,
+        infinite: false,
+    });
+    if ($(".container").width() > 0) {
+        var sidespace = ($("body").innerWidth() - $(".container").width()) / 2 + 15;
+    } else {
+        var sidespace = 40;
+    }
+    if ($(".devices-slider").length) {
+        $(".devices-slider").owlCarousel({
+            stagePadding: sidespace,
+            margin: 0,
+            loop: false,
+            nav: true,
+            dots: false,
+            autoWidth: false,
+            responsive: {
+                0: { items: 2, slideBy: 2 },
+                480: { items: 4, slideBy: 4 },
+                768: { items: 4, slideBy: 4 },
+                992: { items: 5, slideBy: 5 },
+                1200: { items: 6, slideBy: 6 },
+            },
+        });
+    }
+    // $(".plan-device-slider").slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     autoplay: false,
+    //     autoplaySpeed: 2000,
+    //     arrows: true,
+    //     infinite: false,
+    //     asNavFor: '.slider-nav-thumbnails',
+    //     // fade: true,
+    // });
+    // $(".plan-device-slider").on(
+    //     "afterChange",
+    //     function (event, slick, currentSlide) {
+    //         var $currentBox = $(this).closest(".plan-pricebox");
+    //         var baseprice = parsePrice($currentBox.attr("data-baseprice"));
+    //         var fullprice = parsePrice($currentBox.attr("data-fullprice"));
+    //         var itemprice = parsePrice(
+    //             $(this).find(".slick-current .plan-device-box").attr("data-itemprice")
+    //         );
+    //         var totalprice = baseprice + itemprice;
+    //         $currentBox.find(".pd-total").text(totalprice);
+    //     }
+    // );
+    // // thumbnail
+    // $('.slider-nav-thumbnails').slick({
+    //     slidesToShow: 4,
+    //     slidesToScroll: 1,
+    //     asNavFor: '.plan-device-slider',
+    //     focusOnSelect: true,
+    //     variableWidth: true,
+    //     centerMode: true,
+    //     infinite: false,
+    //     loop: false,
+    // });
+
+
+    // responsive device slider
+    $('.plan-device-slider').each(function (key, item) {
+
+        var sliderIdName = 'slider' + key;
+        var sliderNavIdName = 'sliderNav' + key;
+
+        this.id = sliderIdName;
+        $('.slider-nav-thumbnails')[key] !== undefined ? $('.slider-nav-thumbnails')[key].id = sliderNavIdName : null;
+
+        var sliderId = '#' + sliderIdName;
+        var sliderNavId = '#' + sliderNavIdName;
+
+        $(sliderId).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            arrows: true,
+            infinite: false,
+            asNavFor: sliderNavId
+        });
+
+        $(sliderNavId).slick({
+            asNavFor: sliderId,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            focusOnSelect: true,
+            variableWidth: true,
+            centerMode: true,
+            infinite: false,
+            loop: false,
+        });
+
+    });
+
+    function parsePrice(pricedata) {
+        if (pricedata) {
+            return parseFloat(pricedata).toFixed(2).indexOf(".00") > -1
+                ? parseInt(pricedata)
+                : parseFloat(pricedata).toFixed(2);
+        } else {
+            return 0;
+        }
+    }
+    if ($(".existing-wrapper").length) {
+        $(".existing-wrapper").slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            centerMode: false,
+            centerPadding: "30px",
+            variableWidth: false,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            arrows: false,
+            dots: false,
+            infinite: false,
+            responsive: [
+                {
+                    breakpoint: 991,
+                    settings: { slidesToShow: 2, slidesToScroll: 2, dots: false },
+                },
+                {
+                    breakpoint: 767,
+                    settings: { slidesToShow: 2, slidesToScroll: 2, dots: false },
+                },
+                {
+                    breakpoint: 480,
+                    settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
+                },
+            ],
+        });
+    }
+    $(".btn-showmore").click(function () {
+        $(this)
+            .closest(".plan-group")
+            .find(".btn-showmore, .plan-detail")
+            .toggleClass("open");
+    });
+});

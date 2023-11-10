@@ -1,0 +1,11 @@
+@media (max-width: 991px){
+  .mainslider .mainslider-items .textcover {
+      padding-top: 90%;
+  }
+  .mainslider .mainslider-items .textcover p.font18 {
+    width: 100%;
+  }
+  .mainslider .mainslider-items .textcover h2 {
+    font-size: 20px;
+  }
+}

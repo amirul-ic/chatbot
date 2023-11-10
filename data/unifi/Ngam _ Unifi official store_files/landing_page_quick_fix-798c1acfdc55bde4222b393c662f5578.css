@@ -1,0 +1,33 @@
+.row2cardslider .col-lg-6.cardslist:nth-of-type(2) .latest-promo-card-image::before {
+background: unset !important;
+}
+
+.row2cardslider .col-lg-6.cardslist:nth-of-type(1) .latest-promo-card-image::before {
+background: unset !important;
+}
+
+@media all and (min-width: 993px) {
+  .rowitem4cardslider .cardslist {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+max-height: 285px;
+max-width: 391px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  .mainslider-items {
+    height: 900px;
+  }
+ .mainslider .mainslider-items .textcover h2 {
+width: 100%;
+}
+}
+
+@media (min-width: 992px){
+.mainslider-items {
+    background-position: center;
+    background-size: contain !important;
+}
+}
+

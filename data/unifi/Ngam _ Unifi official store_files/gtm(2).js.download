@@ -1,0 +1,623 @@
+//Check Coverage datalayer
+function gtmCheckCoverage(event, serviceCheck) {
+
+	//alert("event  :  "+event);
+	//alert("serviceCheck  : "+serviceCheck);
+	var eventValue = event;
+	var serviceCheckValue = serviceCheck;
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	if (serviceCheckValue != "emptyValue") {
+		dataLayer.push({
+			'event': eventValue,
+			'serviceCheck': 'fail:noPorts'
+		});
+	} else {
+		dataLayer.push({
+			'event': eventValue,
+		});
+	}
+}
+
+//SLOF - Leave Details datalayer
+
+function gtmSLOF(event) {
+	var eventValue = event;
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	dataLayer.push({ 'event': eventValue, });
+}
+
+//call GTM Data Layer for General popup, step 1, 1 business, 2, 3, 4, 4 business, 
+//slof page, order-confirm, home-fibre and business subscribe
+function gtmGetProducts(name, id, price, brand, category) {
+	var quantity = 1;
+	return { "name": name, "id": id, "price": price, "brand": brand, "category": category, "quantity": quantity };
+}
+
+function gtmEcomAdd(name, id, price, brand, category) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category));
+
+	dataLayer.push({
+		'event': 'ecommerce_add',
+		'ecommerce': {
+			'add': { 'products': products }
+		}
+	});
+}
+
+//Unifi Mobile Package Add To Cart with variant
+function gtmMobileEcomAdd(name, id, price, brand, category, variant) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category, variant));
+
+	dataLayer.push({
+		'event': 'ecommerce_add',
+		'ecommerce': {
+			'add': { 'products': products }
+		}
+	});
+}
+
+//Unifi Mobile Package Add To Cart with variant
+function gtmEcomChkout(step, name, id, price, brand, category) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category));
+
+	dataLayer.push({
+		'event': 'ecommerce_checkout',
+		'ecommerce': {
+			'checkout': {
+				'actionField': { "step": step }, "products": products
+			}
+		}
+	});
+}
+
+function gtmEcomChkoutOption(step, type, option) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+
+	dataLayer.push({
+		'event': 'ecommerce_checkout_option',
+		'ecommerce': {
+			'checkout_option': {
+				'actionField': { "step": step, "type": type, "option": option }
+			}
+		}
+	});
+}
+
+function gtmEcomExit(arg1, arg2, arg3) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var event = "";
+
+	if (arg1 === "virtual") {
+		event = "ecommerce_checkout_virtual";
+
+		dataLayer.push({
+			"event": event, 'virtualpage': { 'title': arg2, 'path': arg3 }
+		});
+	} else if (arg1 === "exit") {
+		event = "ecommerce_checkout_exit";
+
+		dataLayer.push({
+			"event": event, 'exit': { 'stage': arg2, 'action': arg3 }
+		});
+	}
+}
+
+function gtmEcommerceChkout(type, street, building, postcode, state, orderID, name, id, price, brand, category) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category));
+
+	dataLayer.push({
+		'event': 'ecommerce_checkout',
+		'installation': { "type": type, "street": street, "building": building, "postcode": postcode, "state": state, "orderID": orderID },
+		'ecommerce': {
+			'checkout': {
+				'actionField': { 'step': 4 }, "products": products
+			}
+		}
+	});
+}
+
+function gtmEcommercePurchase(type, street, building, postcode, state, orderID, affiliation, revenue, name, id, price, brand, category) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category));
+
+	dataLayer.push({
+		'event': 'ecommerce_purchase',
+		'installation': { "type": type, "street": street, "building": building, "postcode": postcode, "state": state, "orderID": orderID },
+		'ecommerce': {
+			'purchase': {
+				'actionField': { 'id': orderID, 'affiliation': affiliation, 'revenue': revenue }, "products": products
+			}
+		}
+	});
+}
+
+function gtmEcommerceLead(step, type, street, building, postcode, state, orderID, name, id, price, brand, category) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var products = [];
+	products.push(gtmGetProducts(name, id, price, brand, category));
+
+	dataLayer.push({
+		'event': 'ecommerce_lead',
+		'installation': { "type": type, "street": street, "building": building, "postcode": postcode, "state": state, "orderID": orderID },
+		'ecommerce': {
+			'checkout': {
+				'actionField': { "step": step }, "products": products
+			}
+		}
+	});
+}
+
+//Unifi EcommFeedback-intan
+function gtmEcomFeedback(score, message) {
+
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+
+	dataLayer.push({
+		'event': 'ecommerce_feedback',
+		'feedback_score': score,
+		'feedback_message': message
+	});
+}
+
+//Unifi EcommPaymentError-intan
+function gtmEcomPaymentErr(errMessage) {
+
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+
+	dataLayer.push({
+		'event': 'ecommerce_error',
+		'error_msg': errMessage
+	});
+}
+
+function gtmEcommerceReview(stars) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+
+	dataLayer.push({
+		'event': 'ecommerce_review',
+		'review': { "starts": stars }
+	});
+}
+//end add
+
+//Register Web Profile
+function gtmWebProfile(event, accountID, idType) {
+	var eventValue = event;
+	var accountIDPValue = accountID;
+	var idTypeValue = idType;
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	//register-popup-complete and register-popup 
+	console.log("eventValue = " + eventValue);
+	if (accountIDPValue == "emptyValue") {
+		dataLayer.push({ 'event': eventValue, 'register': 'web-profile' });
+	} else if (eventValue == "register-popup-complete") {
+		dataLayer.push({ 'event': eventValue, 'register': 'web-profile', 'accountID': accountIDPValue, 'idType': idTypeValue });
+	} else { //eventValue = register-complete
+		dataLayer.push({ 'event': eventValue, 'register-complete': 'web-profile', 'accountID': accountIDPValue, 'idType': idTypeValue });
+	}
+}
+
+//Login
+function gtmLogin(accountID) {
+	var accountIDPValue = accountID;
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'event': 'login',
+		'loginType': 'web-profile'
+	});
+
+}
+//productGtm
+function gtmCart(accountID) {
+	var accountIDPValue = accountID;
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	window.dataLayer.push({
+		'event': 'login',
+		'loginType': 'web-profile'
+	});
+}
+
+function gtmPrdctLanding() {
+	var currentProduct = $('#gtm_prdId').val();
+	var data = $('#ProductJson').val();
+	var obj = jQuery.parseJSON(data);
+	var data = obj.products;
+	////console.log("currentProduct  = "+currentProduct);
+
+
+	$.each(data, function (key, value) {
+
+		if (value.product.productId == currentProduct) {
+			//data layer
+			var variantValue;
+			if (value.product.type == 'home') {
+				variantValue = 'Residential';
+			} else if (value.product.type == 'business') {
+				variantValue = 'SME';
+			} else {
+				variantValue = value.product.type;
+			}
+			var dataLayer = window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				'event': 'detail',
+				'ecommerce': {
+					'detail': {
+						'products': [{
+							'name': value.product.productId,
+							'id': value.product.productId,
+							'brand': value.product.brand,
+							'category': 'Broadband',
+							'variant': variantValue
+						}]
+					}
+				}
+			});
+		}
+	})
+}
+
+
+
+function setGtmCustState(state) {
+
+	var stateCustRegister = sessionStorage.getItem("gtmCustState");
+	var custState = state;
+	console.log("custState   : " + custState);
+	console.log("stateCustRegister   : " + stateCustRegister);
+	if (!stateCustRegister) {
+		sessionStorage.setItem("gtmCustState", custState);
+	}
+}
+
+function gtmUserAction(action) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	// action 0 : Login
+	if (action == 0) {
+		dataLayer.push({
+			"event": "userEvent",
+			"user_action": "User Login",
+			"user_signup_method": "Email"
+		});
+	}
+	// action 1: Register
+	else if (action == 1) {
+		dataLayer.push({
+			"event": "userEvent",
+			"user_action": "User Sign Up Create Account",
+			"user_signup_method": "Email OR Facebook OR Google+"
+		});
+	}
+}
+
+function gtmCartCheck(event) {
+
+	var dataGtm = $('#p_productSelectData').val();
+	var eventValue = event;
+
+	var stateCust = sessionStorage.getItem("gtmCustState");
+	var gtmCustState = stateCust;
+	if (!stateCust) {
+		gtmCustState = "new";
+	}
+	//console.log("gtmCustState start:"+gtmCustState+"   event-->  "+eventValue);
+	if (dataGtm) {
+		//console.log(dataGtm);
+		try {
+			//console.log("got dataGTM,setting up into session :  ");
+			sessionStorage.setItem("productGtmSelect", dataGtm);
+		} catch (e) { }
+
+	} else {
+		//console.log("no dataGTM  :  "+dataGtm);
+		dataGtm = sessionStorage.getItem("productGtmSelect");
+		//console.log("after get session  dataGTM   :  ");
+	}
+
+
+	if (dataGtm) {
+
+		var obj = jQuery.parseJSON(dataGtm);
+		var hypptvObj = obj.hyppTV;
+		var hypptvTemp = [];
+		var i;
+		var productGtm = [];
+		var temp = [];
+
+		console.log(obj);
+
+		var brandTypeGtm = obj.BrandType;
+
+
+		if ($('#p_brandType').val()) {
+			brandTypeGtm = $('#p_brandType').val();
+		} else if ($('#brandType').val()) {
+			brandTypeGtm = $('#p_brandType').val();
+		} else {
+			var brandTypeGtm = obj.BrandType;
+		}
+		console.log("brandTypeGtm -->" + brandTypeGtm);
+
+		//Bundle Info push
+		var temp = {
+			'name': (obj.ProductID),
+			'id': (obj.ProductID),
+			'price': (obj.PriceAfterDiscount),
+			'brand': brandTypeGtm,
+			'category': 'Broadband',
+			'variant': (obj.ProductMarketType),
+			'quantity': 1
+		};
+
+		productGtm.push(temp);
+		////console.log(productGtm);
+
+		for (i = 0; i < hypptvObj.length; i++) {
+
+			var temp2 = {
+				'name': (hypptvObj[i].ProductName),
+				'id': (hypptvObj[i].ProductID),
+				'price': (hypptvObj[i].PriceAfterDiscount),
+				'brand': brandTypeGtm,
+				'category': 'unifiTv Pack',
+				'variant': (obj.ProductMarketType),
+				'quantity': 1
+			};
+
+			temp = productGtm.push(temp2);
+		}
+		var accessoriesObj = obj.accessories;
+		for (i = 0; i < accessoriesObj.length; i++) {
+
+			var temp2 = {
+				'name': (accessoriesObj[i].ProductName),
+				'id': (accessoriesObj[i].ProductID),
+				'price': 0,
+				'brand': brandTypeGtm,
+				'category': 'accessories',
+				'variant': (obj.ProductMarketType),
+				'quantity': 1
+			};
+
+			temp = productGtm.push(temp2);
+		}
+		var addonObj = obj.addon;
+		for (i = 0; i < addonObj.length; i++) {
+
+			var temp2 = {
+				'name': (addonObj[i].ProductName),
+				'id': (addonObj[i].ProductID),
+				'price': (addonObj[i].PriceAfterDiscount),
+				'brand': brandTypeGtm,
+				'category': 'addon',
+				'variant': (obj.ProductMarketType),
+				'quantity': (addonObj[i].Quantity)
+			};
+
+			temp = productGtm.push(temp2);
+		}
+		var channelsObj = obj.channels;
+		for (i = 0; i < channelsObj.length; i++) {
+
+			var temp2 = {
+				'name': (channelsObj[i].ProductName),
+				'id': (channelsObj[i].ProductID),
+				'price': (channelsObj[i].PriceAfterDiscount),
+				'brand': brandTypeGtm,
+				'category': 'unifiTv ala-carte channel',
+				'variant': (obj.ProductMarketType),
+				'quantity': 1
+			};
+
+			temp = productGtm.push(temp2);
+		}
+
+
+		if (eventValue == "checkout") {
+			var products = productGtm;
+			var dataLayer = window.dataLayer = window.dataLayer || [];
+			dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': { 'step': 1 },
+						"prodcuts": products
+					}
+				}
+			});
+		}
+
+		if (eventValue == "customerCheck") {
+			var products = productGtm;
+			var dataLayer = window.dataLayer = window.dataLayer || [];
+			dataLayer.push({
+				'event': 'customerCheck',
+				'customerType': gtmCustState,
+				'ecommerce': {
+					'checkout': {
+						'actionField': { 'step': 2 },
+						"prodcuts": products
+					}
+				}
+			});
+		}
+
+
+		if (gtmCustState && eventValue == "appointment") {
+			var products = productGtm;
+			console.log("gtmCustState in appoinment...." + gtmCustState);
+			var idNumGtm = $("#p_idNumber").val();
+			var idTypeGtm = $("#p_idType").val();
+			//console.log("product productGtm ...."+products);
+
+			if (gtmCustState == "register") {
+
+				var dataLayer = window.dataLayer = window.dataLayer || [];
+				dataLayer.push({
+					'event': 'appointment',
+					'customerType': gtmCustState,
+					'accountID': idNumGtm,
+					'register': 'web-profile',
+					'idType': idTypeGtm,
+					'ecommerce': {
+						'checkout': {
+							'actionField': { 'step': 3 },
+							"prodcuts": products
+						}
+					}
+				});
+
+			} else if (gtmCustState == "existing") {
+
+				var dataLayer = window.dataLayer = window.dataLayer || [];
+				dataLayer.push({
+					'event': 'appointment',
+					'customerType': gtmCustState,
+					'accountID': idNumGtm,
+					'ecommerce': {
+						'checkout': {
+							'actionField': { 'step': 3 },
+							"prodcuts": products
+						}
+					}
+				});
+
+			} else {
+
+				var dataLayer = window.dataLayer = window.dataLayer || [];
+				dataLayer.push({
+					'event': 'appointment',
+					'customerType': gtmCustState,
+					'ecommerce': {
+						'checkout': {
+							'actionField': { 'step': 3 },
+							"prodcuts": products
+						}
+					}
+				});
+			}
+
+		}
+
+		//set all value for Thank You page
+		if (eventValue == "setValue") {
+
+			console.log("setValue method");
+			var orderIDGtm = $('#c_orderId').val();
+			var idNumberGtm = $('#p_idNumber').val();
+			var totalPrice = $('#totalPrice').text();
+			var totalGst = $('#gstPrice').text();
+			var custStateGtmValue = gtmCustState;
+			var orderObj = { "orderIDGtm": orderIDGtm, "idNumberGtm": idNumberGtm, "totalPrice": totalPrice, "totalGst": totalGst, "custStateGtm": custStateGtmValue };
+			sessionStorage.setItem("orderInfoGTM", []);
+			sessionStorage.setItem("orderInfoGTM", JSON.stringify(orderObj));
+			var orderInfoSession = sessionStorage.getItem("orderInfoGTM");
+			//console.log(orderInfoSession);
+
+		}
+
+		if (eventValue == "purchase") {
+
+			var orderInfoSession = sessionStorage.getItem("orderInfoGTM");
+			var objPurchase = jQuery.parseJSON(orderInfoSession);
+			var products = productGtm;
+
+			var orderIDGtm = objPurchase.orderIDGtm;
+			var idNumberGtm = objPurchase.idNumberGtm;
+			var totalPrice = objPurchase.totalPrice;
+			var totalGst = objPurchase.orderObj;
+			var stateCustType = objPurchase.custStateGtm;
+
+			var dataLayer = window.dataLayer = window.dataLayer || [];
+			dataLayer.push({
+				'event': 'purchase',
+				'customerType': stateCustType,
+				'accountID': idNumberGtm,
+				'ecommerce': {
+					'purchase': {
+						'actionField': {
+							'id': orderIDGtm,
+							'affiliation': 'unifi',
+							'revenue': totalPrice,
+							'tax': totalGst,
+							'shipping': 'not set',
+							'coupon': 'not set'
+						},
+						"products": products
+					}
+				}
+			});
+
+		}
+
+	} else {
+		//console.log("p_productSelectData is undefined");
+	}
+}
+
+
+function showEcomDetail(name, id, price) {
+	dataLayer.push({
+		'event': 'ecommerce_detail',
+		'ecommerce': {
+			'detail': {
+				'products': [{
+					'name': name,
+					'id': id,
+					'price': price,
+					'brand': 'unifi home',
+					'category': 'Fibre',
+					'quantity': 1
+				}]
+			}
+		}
+	});
+
+}
+
+function gtmLiveChat() {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'event': 'launchChat'
+	});
+}
+
+// Unifi Ecommerce GTM Tracking 2022 Start
+const viewItemList = (imp) => {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'event': 'view_item_list',
+		'ecommerce': {
+			'impression': imp
+		}
+	});
+}
+
+const selectItem = (name, id, category) => {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'event': 'select_item',
+		'ecommerce': {
+			'detail': {
+				'products': [{
+					'name': name,
+					'id': id,
+					'price': '',
+					'brand': 'Unifi',
+					'category': category,
+					'variant': '',
+					'list': 'Category Page'
+				}]
+			}
+		}
+	});
+}
+// Unifi Ecommerce GTM Tracking 2022 End

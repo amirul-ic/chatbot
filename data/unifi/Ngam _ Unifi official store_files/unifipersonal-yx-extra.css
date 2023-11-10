@@ -1,0 +1,235 @@
+.overlappingbar-cover {
+  overflow-x: hidden;
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
+.network-sel label {
+  cursor: pointer;
+}
+
+.network-sel input:checked+label img.uncheck,
+.network-sel input+label img.checked {
+  display: none;
+}
+
+.network-sel input:checked+label img.checked,
+.network-sel input+label img.uncheck {
+  display: inline-block;
+}
+
+.check-coverage-tab .nav-item:last-child {
+  margin-left: 1rem;
+}
+
+@media (max-width: 991px) {
+  .check-coverage-tab .nav-item {
+    padding: calc(0.5rem * var(--text-multiplier, 0.83)) 0 !important;
+  }
+
+  .network-sel {
+    font-size: 14px;
+  }
+
+  .network-sel img {
+    width: 23px;
+  }
+}
+
+.quicklinkaccess .cookies {
+  margin-bottom: -0.5%;
+  margin-top: 5px;
+  /* background-color: #143e8c; */
+  position: relative;
+  z-index: 10;
+  /* color: #ffffff; */
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.quicklinkaccess .cookiesPop {
+  width: 15%;
+  position: fixed;
+  right: calc(1.25rem * var(--text-multiplier, 0.6));
+  bottom: calc(150px + 5rem * var(--text-multiplier, 0.83));
+  background: white;
+  padding: 10px 0px;
+  z-index: 500;
+  border: #1800e7 1px solid;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.quicklinkaccess .close-alignment {
+  position: relative;
+  left: 20px;
+}
+
+.quicklinkaccess .cookies a {
+  /* color: #ffffff; */
+  text-decoration: underline;
+}
+
+@media (max-width: 685px) {
+  .quicklinkaccess .cookies {
+    margin-bottom: -4px;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
+
+.icon-device.cus-01 {
+  color: transparent;
+  background-image: url(/sites/default/files/2021-07/mesh-wifi-booster-icon-01.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-label-group {
+  overflow: hidden;
+}
+
+.form-radio-box {
+  margin-right: 15px;
+}
+
+.form-radio-box label span {
+  font-weight: 100;
+}
+
+.faq-filter-nav .second-sub .third-sub {
+  top: -60% !important;
+}
+
+.table-cus {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.table-cus.cl-4 {
+  max-width: 936px;
+}
+
+.table-cus.cl-3 {
+  max-width: 702px;
+}
+
+.table-cus.cl-2 {
+  max-width: 468px;
+}
+
+.table-cus.cl-4 td {
+  width: 25%;
+}
+
+.table-cus.cl-3 td {
+  width: 33.333%;
+}
+
+.table-cus.cl-2 td {
+  width: 50%;
+}
+
+.table-cus.cus-01 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  border-style: hidden;
+  color: #666666;
+}
+
+.table-cus.cus-01 th,
+.table-cus.cus-01 td {
+  padding: 12px;
+  border: 2px solid #ffffff;
+}
+
+.table-cus.cus-01 .hl-bg-or {
+  background-color: #ff6624;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.table-cus.cus-01 .hl-bg-gr {
+  background-color: #dddddd;
+  font-weight: 700;
+}
+
+.table-cus.cus-01 .hl-bg-or-2 {
+  background-color: rgba(255, 193, 50, 0.3);
+  color: #ff6624;
+  font-weight: 700;
+}
+
+.table-cus.cus-01 .hl-bd {
+  color: #ff6624;
+  font-weight: 700;
+}
+
+@media (max-width: 991px) {
+  .table-cus.cus-01 td {
+    min-width: 145px;
+  }
+}
+
+.flex-card {
+  flex-flow: column;
+  display: flex;
+  padding-bottom: 1.25rem !important;
+}
+
+.btn-view-plan {
+  width: 70%;
+  margin-top: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: unset;
+  background-color: white;
+}
+
+.card-body.quickbar {
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  padding: unset !important;
+  align-items: center;
+  border: 1px solid #ff6624;
+}
+
+/* .quicknavi .cardslist {
+  width: 130px !important;
+} */
+
+.container.quickbar {
+  overflow: hidden;
+}
+
+.quicklinkcardslider a {
+  font-size: 13px !important;
+}
+
+.quicklinkcardslider .card {
+  border: 1px solid #FEF5EE;
+  max-height: 88px;
+}
+
+.quicklinkcardslider .card:hover {
+  background-color: #FEF5EE;
+}
+
+.quicklinkcardslider .slick-next {
+  top: -3% !important;
+  right: -1% !important;
+  height: 88px;
+}
+
+.quicklinkcardslider .slick-prev {
+  top: -3% !important;
+  left: 0px !important;
+  height: 88px;
+}

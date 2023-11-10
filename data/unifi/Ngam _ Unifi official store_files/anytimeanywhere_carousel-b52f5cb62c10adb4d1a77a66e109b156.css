@@ -1,0 +1,7 @@
+#tmcontent .intro-slider .slick-dots li button {
+content: none !important;
+}
+
+.topbanner .mainslider::before {
+background: unset !important;
+}

@@ -1,0 +1,48 @@
+.logmein {
+  padding-right: 0px !important;
+}
+.logmein.modal.show .modal-dialog {
+  max-width: 600px !important;
+  margin: auto !important;
+  /*height: 100%;*/
+  width: 100% !important;
+  /*display: flex;
+	align-items: center;*/
+  /*top: 50%;
+    transform: translate(0%,-50%);*/
+}
+.step-row .my-auto {
+  margin: auto !important;
+}
+.logmein .close-search {
+  position: relative;
+  text-align: center;
+  display: block !important;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.logmein.modal.show .modal-dialog .modal-content .mymodal-body {
+  padding: 0em 0px 0px !important;
+  background: #f6f6f6;
+  border-radius: calc(1.05rem * var(--text-multiplier, 0.85));
+  -webkit-border-radius: calc(1.05rem * var(--text-multiplier, 0.85));
+  overflow: hidden;
+}
+body.modal-open > :not(.modal) {
+  background: #9a9a9a;
+}
+.modal-title-box {
+  padding: 30px;
+  background: #fff;
+}
+#subscribe .row {
+  height: 100vh;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+.thanks-mod {
+  max-width: 40px;
+}
+.img-responsive {
+  max-width: 100%;
+}

@@ -1,0 +1,4 @@
+.indexMainBannerDesktop,
+.indexMainBannerMobile {
+  z-index: 0 !important;
+}
