@@ -4,14 +4,14 @@ from llama_index.llms import OpenAI
 import openai
 from llama_index import SimpleDirectoryReader
 
-st.set_page_config(page_title="Chat with the Streamlit docs", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="Chat with the Unifi Home docs", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
 
-st.header("Chat with the Streamlit docs 💬 📚")
+st.header("Chat with the Unifi FAQ docs 💬")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
-        {"role": "assistant", "content": "Ask me a question about Streamlit's open-source Python library!"}
+        {"role": "assistant", "content": "Ask me a question about Unifi Home library!"}
     ]
 
 @st.cache_resource(show_spinner=False)
