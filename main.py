@@ -2,7 +2,8 @@ import streamlit as st
 from llama_index import VectorStoreIndex, ServiceContext, Document
 from llama_index.llms import OpenAI
 import openai
-from llama_index import SimpleDirectoryReader, download_loader
+from llama_index import SimpleDirectoryReader 
+from llama_index import download_loader
 
 st.set_page_config(page_title="Chat with the Unifi Home docs", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
