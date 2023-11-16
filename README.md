@@ -1,4 +1,4 @@
-# Chat with Website FAQ Section
+# Chat with FAQ Section
 
 This app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq):
 
