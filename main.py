@@ -13,12 +13,12 @@ st.header("Chat with the Unifi FAQ docs 💬")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
-        {"role": "assistant", "content": "Ask me a question about Unifi Home library!"}
+        {"role": "assistant", "content": "Ask me a question about Unifi Home!"}
     ]
 
 @st.cache_resource(show_spinner=False)
 def load_data():
-    with st.spinner(text="Loading and indexing the FAQ docs – hang tight! This should take 1-2 minutes."):
+    with st.spinner(text="Loading and indexing the FAQ docs – hang tight! This should take a few minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
 
