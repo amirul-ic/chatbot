@@ -18,5 +18,5 @@ In this demo app, this app chat with the Unifi Home FAQ document retrieved from 
 The app can also be extended to personal book collections, enterprise knowledge banks, etc by replacing the documents in the 'data' folders accordingly. <br>
 <img width="400px" src="./media/data_folder.JPG" alt="data folder" />
 
-**Reference**
+**Reference** <br>
 The code used is based on the tutorial [here](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/).
