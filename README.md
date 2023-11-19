@@ -10,8 +10,7 @@ Why custom data source?
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): 
 <br>
 <br>
-
-<u>Comparison of responses</u>
+<ins>Comparison of responses</ins>
 
 | Official FAQ Document|Chat GPT | [App](https://faq-chatbot.streamlit.app/) - Custom Data Source |
 | ----------  |---------|--------------------------|
