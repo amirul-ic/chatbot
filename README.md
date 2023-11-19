@@ -7,12 +7,17 @@ Why custom data source?
 * Information timeliness
 
 
-In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): <br>Click [here](https://faq-chatbot.streamlit.app/) to access the app.
+In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): 
+<br>
+<br>
+<br>
 
 | Official FAQ Document|Chat GPT | [App](https://faq-chatbot.streamlit.app/) - Custom Data Source |
 | ----------  |---------|--------------------------|
 | <img width="600px" src="./media/unifi_FAQ.JPG" alt="faq doc" />     |![](https://github.com/amirul-ic/chatbot/blob/main/media/chat_gpt.gif)  |![](https://github.com/amirul-ic/chatbot/blob/main/media/app.gif)            |
 
+<br>
+Click [here](https://faq-chatbot.streamlit.app/) to access the app.
 
 
 The app can also be extended to personal book collections, enterprise knowledge banks, etc by replacing the documents in the 'data' folders accordingly. <br>
