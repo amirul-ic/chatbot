@@ -10,7 +10,7 @@ Why custom data source?
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): <br>Click [here](https://faq-chatbot.streamlit.app/) to access the app.
 
 The app can also be extended to personal book collections, enterprise knowledge banks, etc. To do so, replace the documents in the 'data' folders accordingly.
-<img width="100px" src="./media/data_folder.jpg" alt="data folder" />
+<img width="100px" src="./media/data_folder.JPG" alt="data folder" />
 
 
 The code used is based on the tutorial [here](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/).
