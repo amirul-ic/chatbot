@@ -1,4 +1,4 @@
-# Chat with FAQ Section
+# Chatbot with customer data source - Chat with FAQ Section
 
 This objective is to create a chatbot using a **custom data source** and GPT-3.5 engine.  <br>  
 
