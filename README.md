@@ -9,7 +9,7 @@ Why custom data source?
 
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): <br>Click [here](https://faq-chatbot.streamlit.app/) to access the app.
 
-The app can also be extended to personal book collections, enterprise knowledge banks, etc. To do so, replace the documents in the 'data' folders accordingly. <br>
+The app can also be extended to personal book collections, enterprise knowledge banks, etc by replacing the documents in the 'data' folders accordingly. <br>
 <img width="400px" src="./media/data_folder.JPG" alt="data folder" />
 
 
