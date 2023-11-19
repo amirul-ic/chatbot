@@ -11,12 +11,11 @@ In this demo app, this app chat with the Unifi Home FAQ document retrieved from 
 
 | Official FAQ Document|Chat GPT | App - Custom Data Source |
 | ----------  |---------|--------------------------|
-| <img width="600px" src="./media/unifi_FAQ.JPG" alt="faq doc" />     |![](https://github.com/amirul-ic/chatbot/blob/main/media/chat_gpt.gif)  |Content Cell              |
+| <img width="600px" src="./media/unifi_FAQ.JPG" alt="faq doc" />     |![](https://github.com/amirul-ic/chatbot/blob/main/media/chat_gpt.gif)  |![](https://github.com/amirul-ic/chatbot/blob/main/media/app.gif)            |
 
 
 
 The app can also be extended to personal book collections, enterprise knowledge banks, etc by replacing the documents in the 'data' folders accordingly. <br>
-<img width="400px" src="./media/data_folder.JPG" alt="data folder" />
 
 **Reference** <br>
 The code used is based on the tutorial [here](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/).
