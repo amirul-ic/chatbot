@@ -1,6 +1,6 @@
 # Chat with FAQ Section
 
-This objective is to create a chatbot using a custom data source and GPT-3.5 engine.  Why custom data source?
+This objective is to create a chatbot using a custom data source and GPT-3.5 engine.  <br>Why custom data source?
 * Context more relevant to specific purpose
 * Information timeliness
 
