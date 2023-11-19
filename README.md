@@ -11,7 +11,7 @@ In this demo app, this app chat with the Unifi Home FAQ document retrieved from 
 <br>
 <br>
 
-_Comparison of responses_
+<u>Comparison</u> of responses_
 
 | Official FAQ Document|Chat GPT | [App](https://faq-chatbot.streamlit.app/) - Custom Data Source |
 | ----------  |---------|--------------------------|
