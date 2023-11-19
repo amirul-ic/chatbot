@@ -10,6 +10,7 @@ Why custom data source?
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): 
 <br>
 <br>
+Comparison of responses
 | Official FAQ Document|Chat GPT | [App](https://faq-chatbot.streamlit.app/) - Custom Data Source |
 | ----------  |---------|--------------------------|
 | <img width="600px" src="./media/unifi_FAQ.JPG" alt="faq doc" />     |![](https://github.com/amirul-ic/chatbot/blob/main/media/chat_gpt.gif)  |![](https://github.com/amirul-ic/chatbot/blob/main/media/app.gif)            |
