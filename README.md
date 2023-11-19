@@ -9,11 +9,9 @@ Why custom data source?
 
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq): <br>Click [here](https://faq-chatbot.streamlit.app/) to access the app.
 
-| Chat GPT | App - Custom Data Source |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-
+| FAQ Document|Chat GPT | App - Custom Data Source |
+| |------------- | ------------- |
+| |Content Cell  | Content Cell  |
 
 
 
