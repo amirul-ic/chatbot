@@ -8,7 +8,6 @@ Why custom data source?
 
 
 In this demo app, this app chat with the Unifi Home FAQ document retrieved from the [website](https://unifi.com.my/support/faq):
-
 Click [here](https://faq-chatbot.streamlit.app/) to access the app.
 
 
