@@ -16,7 +16,8 @@ if "messages" not in st.session_state.keys(): # Initialize the chat messages his
         {"role": "assistant", "content": "Ask me a question about Unifi Home!"}
     ]
 
-@st.cache_resource(show_spinner=False)
+# @st.cache_resource(show_spinner=False)
+@st.cache_data(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the FAQ docs – hang tight! This should take a few minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
